@@ -1,6 +1,5 @@
 from django.urls import path
-
-from eecho import consumers
+from dj_channels.eecho import consumers
 
 websocket_urlpatterns = [
     path('ws/', consumers.EchoConsumer),

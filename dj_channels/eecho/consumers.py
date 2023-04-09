@@ -8,5 +8,8 @@ class EchoConsumer(WebsocketConsumer):
     def disconnect(self, close_code):
         pass
 
-    def receive(self, text_data):
-        self.send(text_data=text_data)
+    def receive(self, text_data=None, bytes_data=None):
+        if text_data:
+            self.send(text_data=text_data + " -sent by server")
+        elif bytes_data:
+            self.send(bytes_data=bytes_data)
